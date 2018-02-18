@@ -14,7 +14,7 @@ module.exports = {
         client.connect();
         
         
-        var query = client.query("select (id,name) from salesforce.Account ");
+        var query = client.query("select * from salesforce.Account ");
         
         query.on('row', function(row) {
                  query = client.query("insert into demo(id, name) " + "values ("+row.id+",'"+row.name+"')");
