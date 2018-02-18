@@ -18,8 +18,10 @@ module.exports = {
         
         query.on('row', function(row) {
                  query = client.query("insert into demo(id, name) " + "values ("+row.id+",'"+row.name+"')");
-                 res.sendStatus(200);
          });
+        
+        res.sendStatus(200);
+
         
         
     }
