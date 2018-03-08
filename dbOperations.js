@@ -18,7 +18,6 @@ module.exports = {
         
         query.on('row', function(row, result) {
                  result.addRow(row);
-                 query = client.query("insert into demo(id, name) " + "values ("+row.id+",'"+row.name+"')");
          });
         
         query.on("end", function (result) {
@@ -26,7 +25,6 @@ module.exports = {
                  res.writeHead(200, {'Content-Type': 'text/plain'});
                  res.write(JSON.stringify(result.rows, null, "    ") + "\n");
                  res.end();
-                 res.sendStatus(200);
         });
         
 
