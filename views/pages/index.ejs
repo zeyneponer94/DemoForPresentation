@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
 <head>
 <script src="lib/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="lib/example.js"></script>
 </head>
-<body class="container" ng-app="myApp" ng-controller="myController">
+<button type="button" ng-click="getAccountObj()">GET ACCOUNT OBJECT</button>
+<h1 ng-repeat="option in accountObj" value="{{option.name}}">{{option.name}}</h1>
+ng-app="myApp" ng-controller="myController"
+-->
+<body class="container" >
 <main>
 <div class="jumbotron">
 <h1>Host on Heroku</h1>
-<button type="button" ng-click="getAccountObj()">GET ACCOUNT OBJECT</button>
-<h1 ng-repeat="option in accountObj" value="{{option.name}}">{{option.name}}</h1>
 </div>
 </main>
 </body>
