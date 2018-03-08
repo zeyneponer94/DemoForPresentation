@@ -6,7 +6,7 @@
         
         //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
         $scope.getAccountObj = function() {
-          $http({method: 'GET', url: '/db/getAccountObj'}).
+          $http({method: 'GET', url: '/getAccountObj'}).
           success(function(data, status) {
                   var i = 0;
                   while(data[i].id!=null){
