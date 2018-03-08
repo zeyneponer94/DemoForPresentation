@@ -2,13 +2,13 @@ module.exports = {
     
     
     
-    dbChanges : function(req, res){
+    getAccountObj : function(req, res){
         
 
 
         var pg = require('pg');
         
-        const conString = 'postgres://jxqrpxtlufhgae:72b38c25ce8801b4a1006a38325f0e4cb80235a8d8ac0e959c576796ce216ba1@ec2-54-221-207-184.compute-1.amazonaws.com:5432/d963jopd97sas6';
+        const conString = 'postgres://ptqlegohnfvlxi:f6b6c4a902c65be534369c69f3f7553d781c804dc49c1c63bec84ebf6c53dd45@ec2-54-243-239-66.compute-1.amazonaws.com:5432/d7dp1tjaohdugb';
         
         var client = new pg.Client(conString);
         client.connect();
@@ -16,11 +16,19 @@ module.exports = {
         
         var query = client.query("select * from salesforce.Account ");
         
-        query.on('row', function(row) {
+        query.on('row', function(row, result) {
+                 result.addRow(row);
                  query = client.query("insert into demo(id, name) " + "values ("+row.id+",'"+row.name+"')");
          });
         
-        res.sendStatus(200);
+        query.on("end", function (result) {
+                 client.end();
+                 res.writeHead(200, {'Content-Type': 'text/plain'});
+                 res.write(JSON.stringify(result.rows, null, "    ") + "\n");
+                 res.end();
+        });
+        
+        //res.sendStatus(200);
 
         
         
