@@ -26,9 +26,9 @@ module.exports = {
                  res.writeHead(200, {'Content-Type': 'text/plain'});
                  res.write(JSON.stringify(result.rows, null, "    ") + "\n");
                  res.end();
+                 res.sendStatus(200);
         });
         
-        //res.sendStatus(200);
 
         
         
