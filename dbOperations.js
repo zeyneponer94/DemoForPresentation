@@ -8,7 +8,7 @@ module.exports = {
 
         var pg = require('pg');
         
-        const conString = 'postgres://ptqlegohnfvlxi:f6b6c4a902c65be534369c69f3f7553d781c804dc49c1c63bec84ebf6c53dd45@ec2-54-243-239-66.compute-1.amazonaws.com:5432/d7dp1tjaohdugb';
+        const conString = 'postgres://xrixuxjugjxffa:3c2db3bcbebc146efe766de349812478e6b5a7bc5e2aeca57ce84e2268d75a65@ec2-54-235-66-24.compute-1.amazonaws.com:5432/ddi1k00lq5nup1';
         
         var client = new pg.Client(conString);
         client.connect();
